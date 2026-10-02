@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sanskar Verma</title>
+<meta name="description" content="Sanskar Verma — software engineer building full-stack products and authoring evaluation tasks for AI coding agents.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,600..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one left-aligned column on a pale lab-paper ground; career shown as a git log, projects as browser frames. */
+:root{
+  --paper:#F2F4EF; --surface:#FBFCF9; --ink:#131A16; --muted:#56615B; --line:#D6DBD3;
+  --accent:#2340C4; --accent-soft:#E3E8FB; --warm:#B8661F; --live:#1E8A4C;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0E1311; --surface:#151C19; --ink:#E6EBE5; --muted:#97A39C; --line:#26302B;
+  --accent:#93A6FF; --accent-soft:#1C2447; --warm:#E3A05E; --live:#4FCB85; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0E1311; --surface:#151C19; --ink:#E6EBE5; --muted:#97A39C; --line:#26302B;
+  --accent:#93A6FF; --accent-soft:#1C2447; --warm:#E3A05E; --live:#4FCB85; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{font:800 15px/1 var(--display);font-stretch:125%;letter-spacing:.02em;text-decoration:none}
+.mark span{color:var(--accent)}
+.nav ul{display:flex;gap:clamp(12px,2.5vw,28px);list-style:none;margin:0;padding:0;font:500 13px/1 var(--mono)}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+@media (max-width:560px){.nav ul li.hide-sm{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(48px,9vw,104px) clamp(40px,6vw,72px)}
+.eyebrow{font:500 13px/1.4 var(--mono);color:var(--muted);letter-spacing:.02em;display:flex;flex-wrap:wrap;gap:6px 14px}
+.eyebrow .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--live);margin-right:6px;vertical-align:1px}
+h1{font:900 clamp(44px,9.5vw,112px)/.92 var(--display);font-stretch:125%;letter-spacing:-.02em;margin:22px 0 0;text-transform:uppercase;text-wrap:balance}
+h1 .surname{color:var(--accent)}
+.lede{max-width:62ch;font-size:clamp(17px,2vw,20px);line-height:1.55;margin:28px 0 0;color:var(--ink)}
+.lede em{font-style:normal;background:linear-gradient(transparent 62%,var(--accent-soft) 62%)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;font:500 14px/1 var(--body);text-decoration:none;border:1px solid var(--line);background:var(--surface);transition:border-color .15s,transform .15s}
+.btn:hover{border-color:var(--ink);transform:translateY(-1px)}
+.btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn svg{width:16px;height:16px;flex:none}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:clamp(40px,6vw,64px);border-top:1px solid var(--line)}
+.facts div{padding:16px 16px 0 0}
+.facts b{display:block;font:800 clamp(24px,3.4vw,34px)/1 var(--display);font-stretch:112%;font-variant-numeric:tabular-nums}
+.facts span{display:block;margin-top:6px;font:400 13px/1.4 var(--mono);color:var(--muted)}
+@media (max-width:640px){.facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:12px}}
+
+/* sections */
+section{padding-block:clamp(48px,7vw,88px);border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,44px)}
+h2{font:800 clamp(28px,4.4vw,44px)/1 var(--display);font-stretch:118%;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.sec-head p{margin:0;font:400 13px/1.4 var(--mono);color:var(--muted)}
+
+/* featured projects */
+.feature{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center}
+.feature + .feature{margin-top:clamp(40px,6vw,72px)}
+.feature.flip .shot{order:2}
+@media (max-width:820px){.feature,.feature.flip{grid-template-columns:minmax(0,1fr)}.feature.flip .shot{order:0}}
+.browser{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);box-shadow:0 18px 40px -24px rgba(10,20,15,.35)}
+.browser .bar{display:flex;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);font:400 12px/1 var(--mono);color:var(--muted)}
+.browser .bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.browser .bar .url{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:var(--paper);padding:6px 10px;border-radius:6px}
+.browser img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.shot a{display:block;text-decoration:none}
+.shot a:hover .browser{border-color:var(--accent)}
+.status{display:inline-flex;align-items:center;gap:7px;font:500 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--live)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px color-mix(in srgb,currentColor 22%,transparent);animation:pulse 2.4s ease-in-out infinite}
+.status.code{color:var(--warm)}
+.status.code::before{animation:none}
+@keyframes pulse{50%{box-shadow:0 0 0 7px color-mix(in srgb,currentColor 0%,transparent)}}
+h3{font:800 clamp(24px,3vw,32px)/1.05 var(--display);font-stretch:112%;margin:12px 0 10px}
+.feature p{margin:0 0 14px;color:var(--muted);max-width:56ch}
+.points{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:6px;font-size:15px}
+.points li{padding-left:18px;position:relative}
+.points li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.chips li{font:400 12px/1 var(--mono);padding:6px 9px;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+
+/* project grid */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(48px,7vw,80px)}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:580px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{display:flex;flex-direction:column;gap:10px;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-decoration:none;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card .top{display:flex;justify-content:space-between;align-items:center;gap:8px;font:400 12px/1 var(--mono);color:var(--muted)}
+.card h4{font:700 20px/1.15 var(--display);font-stretch:112%;margin:0}
+.card p{margin:0;font-size:14.5px;color:var(--muted);flex:1}
+.card .arrow{transition:transform .15s}
+.card:hover .arrow{transform:translate(2px,-2px);color:var(--accent)}
+
+/* experience as git log */
+.log{list-style:none;margin:0;padding:0;position:relative}
+.log::before{content:"";position:absolute;left:23px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.commit{display:grid;grid-template-columns:48px minmax(0,1fr);gap:18px;padding-bottom:30px;position:relative}
+.commit:last-child{padding-bottom:0}
+.logo{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font:800 15px/1 var(--display);font-stretch:112%;color:#fff;position:relative;z-index:1;box-shadow:0 0 0 5px var(--paper)}
+.commit .meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;font:400 12.5px/1.4 var(--mono);color:var(--muted)}
+.commit .hash{color:var(--warm)}
+.commit .head{color:var(--live);font-weight:500}
+.commit h3{font-size:clamp(19px,2.3vw,23px);margin:6px 0 2px}
+.commit .org{font-weight:600;font-size:15px}
+.commit p{margin:8px 0 0;color:var(--muted);max-width:68ch;font-size:15px}
+
+/* skills + education */
+.two{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(28px,5vw,64px)}
+@media (max-width:820px){.two{grid-template-columns:minmax(0,1fr)}}
+.skillset{display:grid;gap:22px}
+.skillset h5{margin:0 0 10px;font:500 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.skillset .chips li{font-size:13px;color:var(--ink);background:var(--surface)}
+.edu{border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--surface);align-self:start}
+.edu .years{font:400 13px/1 var(--mono);color:var(--muted)}
+.edu h3{font-size:22px;margin:10px 0 4px}
+.edu p{margin:0;color:var(--muted)}
+.edu hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+
+/* contact */
+.contact h2{font-size:clamp(34px,6.4vw,72px);font-stretch:125%;text-transform:uppercase;line-height:.95}
+.contact p{max-width:56ch;color:var(--muted);margin:18px 0 0}
+.handles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+@media (max-width:900px){.handles{grid-template-columns:minmax(0,1fr)}}
+.handle > div{min-width:0;flex:1}
+.copy{margin-left:auto;flex:none;font:500 12px/1 var(--mono);padding:8px 10px;border-radius:6px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.copy:hover{border-color:var(--accent)}
+.handle{display:flex;align-items:center;gap:14px;padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-decoration:none;transition:border-color .15s}
+.handle:hover{border-color:var(--accent)}
+.handle svg{width:26px;height:26px;flex:none}
+.handle b{display:block;font-weight:600}
+.handle span{display:block;font:400 13px/1.4 var(--mono);color:var(--muted);overflow-wrap:anywhere}
+footer{padding-block:28px;border-top:1px solid var(--line);font:400 12.5px/1.5 var(--mono);color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="mark" href="#top">SV<span>.</span></a>
+    <ul>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li class="hide-sm"><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="wrap hero">
+    <div class="eyebrow"><span><span class="dot"></span>Open to full-time &amp; freelance roles</span><span>Indore, Madhya Pradesh</span></div>
+    <h1>Sanskar<br><span class="surname">Verma</span></h1>
+    <p class="lede">Software engineer who builds full-stack products and writes the hard tasks that <em>frontier AI coding agents</em> are tested on. I ship live tools used by real people, and I spend my days evaluating what models get right and wrong in code.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See projects</a>
+      <a class="btn" href="https://github.com/sanskar-vermaa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/sanskar-verma-83288b243" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+    </div>
+    <div class="facts">
+      <div><b>8</b><span>public projects</span></div>
+      <div><b>54</b><span>SEO pages on a live tool</span></div>
+      <div><b>3</b><span>AI evaluation platforms</span></div>
+      <div><b>’25</b><span>B.Tech CSE, JEC</span></div>
+    </div>
+  </header>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head"><h2>Selected work</h2><p>live products first · all code on GitHub</p></div>
+
+      <article class="feature">
+        <div class="shot">
+          <a href="https://imageresizepro.vercel.app/" target="_blank" rel="noopener" aria-label="Open ImageResizePro live site">
+            <div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">imageresizepro.vercel.app</span></div>
+            <img src="assets/irp-home.webp" alt="ImageResizePro home page with compress, resize and convert tools" width="1200" height="750" loading="lazy"></div>
+          </a>
+        </div>
+        <div>
+          <span class="status">Live</span>
+          <h3>ImageResizePro</h3>
+          <p>Free image toolkit that runs entirely in the browser. Photos never leave the device, which makes it safe for ID and exam-form documents.</p>
+          <ul class="points">
+            <li>Compress to exact KB targets (10 KB to 500 KB) for government exam forms</li>
+            <li>Resize, crop, convert (HEIC, WebP, AVIF), image to PDF, watermark, batch ZIP</li>
+            <li>Installable PWA that works offline, with 54 keyword-focused pages and structured data</li>
+          </ul>
+          <ul class="chips"><li>JavaScript</li><li>Canvas API</li><li>PWA</li><li>SEO</li><li>Vercel</li></ul>
+          <div class="links">
+            <a class="btn primary" href="https://imageresizepro.vercel.app/" target="_blank" rel="noopener">Open live site ↗</a>
+            <a class="btn" href="https://github.com/sanskar-vermaa/imageresizepro" target="_blank" rel="noopener">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature flip">
+        <div class="shot">
+          <a href="https://github.com/sanskar-vermaa/AI-Powered-Q-A-platform" target="_blank" rel="noopener" aria-label="Open AskAI on GitHub">
+            <div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">askai · localhost:5173</span></div>
+            <img src="assets/askai-home.webp" alt="AskAI question feed with tags, votes and AI answer badges" width="1200" height="750" loading="lazy"></div>
+          </a>
+        </div>
+        <div>
+          <span class="status code">Full-stack · Docker</span>
+          <h3>AskAI</h3>
+          <p>A community Q&amp;A platform in the spirit of Stack Overflow, with AI built into each step of asking and answering.</p>
+          <ul class="points">
+            <li>AI-drafted answers, question rewriting, auto-tagging and thread summaries</li>
+            <li>Streaming chat assistant over SSE, plus duplicate detection while typing</li>
+            <li>Reputation, badges, moderation queue and role-based permissions</li>
+          </ul>
+          <ul class="chips"><li>FastAPI</li><li>React 19</li><li>TypeScript</li><li>Tailwind</li><li>Claude API</li><li>PostgreSQL / Oracle</li></ul>
+          <div class="links">
+            <a class="btn primary" href="https://github.com/sanskar-vermaa/AI-Powered-Q-A-platform" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="grid">
+        <a class="card" href="https://github.com/sanskar-vermaa/sarkari-naukri.com" target="_blank" rel="noopener">
+          <div class="top"><span>Python · GitHub Actions</span><span class="arrow">↗</span></div>
+          <h4>Sarkari Naukri Live</h4>
+          <p>Govt job portal that scrapes official sites (UPSC, SSC, IBPS, MPESB…) every 3 hours and rebuilds itself as a static site.</p>
+          <ul class="chips"><li>Scraper</li><li>Static builder</li><li>Vercel</li></ul>
+        </a>
+        <a class="card" href="https://github.com/sanskar-vermaa/team-management" target="_blank" rel="noopener">
+          <div class="top"><span>Flask · pandas</span><span class="arrow">↗</span></div>
+          <h4>Team Builder</h4>
+          <p>Splits an Excel or CSV roster into balanced teams by role and exports PDF, Excel or CSV. 99 tests at 100% coverage.</p>
+          <ul class="chips"><li>Docker</li><li>JSON API</li><li>CI</li></ul>
+        </a>
+        <a class="card" href="https://github.com/sanskar-vermaa/ledger" target="_blank" rel="noopener">
+          <div class="top"><span>Python · SQLite</span><span class="arrow">↗</span></div>
+          <h4>Ledger</h4>
+          <p>Envelope-budgeting toolkit: bank CSV import, rule-based categorizing, recurring-payment detection, CLI and web dashboard.</p>
+          <ul class="chips"><li>CLI</li><li>Flask</li><li>pytest</li></ul>
+        </a>
+        <a class="card" href="https://github.com/sanskar-vermaa/stockflow-inventory-management" target="_blank" rel="noopener">
+          <div class="top"><span>React · Express</span><span class="arrow">↗</span></div>
+          <h4>StockFlow</h4>
+          <p>Inventory and order management with an audited stock-movement log, transactional orders and admin/staff roles.</p>
+          <ul class="chips"><li>SQLite</li><li>JWT</li><li>15 tests</li></ul>
+        </a>
+        <a class="card" href="https://github.com/sanskar-vermaa/Genrative-Ai" target="_blank" rel="noopener">
+          <div class="top"><span>React · Node</span><span class="arrow">↗</span></div>
+          <h4>GenStudio</h4>
+          <p>Multi-user AI chat workspace on the Gemini API with saved conversations, prompt presets and per-user token usage limits.</p>
+          <ul class="chips"><li>MongoDB</li><li>Gemini API</li><li>JWT</li></ul>
+        </a>
+        <a class="card" href="https://github.com/sanskar-vermaa/RealTime-Location" target="_blank" rel="noopener">
+          <div class="top"><span>Node · Socket.io</span><span class="arrow">↗</span></div>
+          <h4>RealTime Location</h4>
+          <p>Live location tracker that streams every connected user’s position to a shared map over WebSockets.</p>
+          <ul class="chips"><li>Express</li><li>EJS</li><li>WebSockets</li></ul>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head"><h2>Experience</h2><p>$ git log --career</p></div>
+      <ol class="log">
+        <li class="commit">
+          <div class="logo" style="background:#2F2A6B">HS</div>
+          <div>
+            <div class="meta"><span class="hash">a7f3e21</span><span class="head">(HEAD)</span><span>Jul 2026 – present · Remote</span></div>
+            <h3>AI Task Author, Coding Fellow</h3>
+            <div class="org">Handshake AI</div>
+            <p>Author hard, verifiable terminal tasks for agentic coding benchmarks: problem statement, reference solution, hidden tests and a reproducible Docker environment that frontier coding agents must solve.</p>
+          </div>
+        </li>
+        <li class="commit">
+          <div class="logo" style="background:#0F5F57">AQ</div>
+          <div>
+            <div class="meta"><span class="hash">5c09b4d</span><span>Apr 2026 – present · Remote</span></div>
+            <h3>AI Benchmark Contributor</h3>
+            <div class="org">AfterQuery</div>
+            <p>Build and review benchmark tasks across software engineering and UI apps: hardening candidate tasks, writing tests that catch shortcut solutions, and checking that each task is fair and solvable.</p>
+          </div>
+        </li>
+        <li class="commit">
+          <div class="logo" style="background:#3B4A63">AL</div>
+          <div>
+            <div class="meta"><span class="hash">e18d6a0</span><span>Sep 2025 – present · Remote</span></div>
+            <h3>AI Trainer, Code &amp; Language</h3>
+            <div class="org">Alignerr · Labelbox</div>
+            <p>Evaluate and rank model responses for code correctness and quality, write preference judgements, and produce Hindi spoken-form transcription for speech data.</p>
+          </div>
+        </li>
+        <li class="commit">
+          <div class="logo" style="background:#C4581C">CH</div>
+          <div>
+            <div class="meta"><span class="hash">93b2f7c</span><span>Oct 2023 – Nov 2024</span></div>
+            <h3>Computer Science Subject Matter Expert</h3>
+            <div class="org">Chegg India</div>
+            <p>Wrote step-by-step solutions to student questions in data structures, algorithms, databases and programming, held to Chegg’s accuracy and clarity review standards.</p>
+          </div>
+        </li>
+        <li class="commit">
+          <div class="logo" style="background:#B03A2E">CN</div>
+          <div>
+            <div class="meta"><span class="hash">4d61c88</span><span>Jun 2023 – Sep 2023</span></div>
+            <h3>Teaching Assistant</h3>
+            <div class="org">Coding Ninjas</div>
+            <p>Resolved learner doubts on DSA and programming fundamentals, debugged student code and explained concepts one-on-one.</p>
+          </div>
+        </li>
+        <li class="commit">
+          <div class="logo" style="background:#1F6F9A">CR</div>
+          <div>
+            <div class="meta"><span class="hash">0be5a19</span><span>May 2022 – Jul 2022</span></div>
+            <h3>Frontend Developer Intern</h3>
+            <div class="org">ChemRobotics Databases</div>
+            <p>Built and refined responsive interface screens for a chemical and regulatory data platform.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap two">
+      <div>
+        <div class="sec-head"><h2>Toolkit</h2></div>
+        <div class="skillset">
+          <div><h5>Languages</h5><ul class="chips"><li>Python</li><li>JavaScript</li><li>TypeScript</li><li>C++</li><li>Java</li><li>SQL · PL/SQL</li><li>Rust</li></ul></div>
+          <div><h5>Web &amp; backend</h5><ul class="chips"><li>React</li><li>Next.js</li><li>Node.js</li><li>Express</li><li>FastAPI</li><li>Flask</li><li>Tailwind CSS</li></ul></div>
+          <div><h5>Data</h5><ul class="chips"><li>PostgreSQL</li><li>MySQL</li><li>Oracle</li><li>MongoDB</li><li>SQLite</li><li>pandas</li></ul></div>
+          <div><h5>AI &amp; delivery</h5><ul class="chips"><li>LLM APIs (Claude, Gemini)</li><li>AI evaluation</li><li>Docker</li><li>GitHub Actions</li><li>pytest</li><li>Vercel</li></ul></div>
+        </div>
+      </div>
+      <aside class="edu" aria-label="Education">
+        <div class="years">2021 – 2025</div>
+        <h3>B.Tech, Computer Science &amp; Engineering</h3>
+        <p>Jabalpur Engineering College, Jabalpur</p>
+        <hr>
+        <div class="years">Focus</div>
+        <p style="margin-top:8px">Data structures and algorithms, databases, web development, and evaluating AI-written code.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Let’s build<br>something.</h2>
+      <p>Hiring for a software or AI evaluation role, or need a web tool built? Email me or reach out on LinkedIn.</p>
+      <div class="handles">
+        <div class="handle email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 7 8.5-7"/></svg>
+          <div><b>Email</b><span id="email-text">sanskarv120503@gmail.com</span></div>
+          <button type="button" id="copy-email" class="copy">Copy</button>
+        </div>
+        <a class="handle" href="https://www.linkedin.com/in/sanskar-verma-83288b243" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          <div><b>LinkedIn</b><span>in/sanskar-verma-83288b243</span></div>
+        </a>
+        <a class="handle" href="https://github.com/sanskar-vermaa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          <div><b>GitHub</b><span>github.com/sanskar-vermaa</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Sanskar Verma</span><span>Indore · Built with plain HTML &amp; CSS</span></div>
+</footer>
+<script>
+(function(){
+  var btn=document.getElementById('copy-email'), txt=document.getElementById('email-text');
+  if(!btn) return;
+  btn.addEventListener('click',function(){
+    var v=txt.textContent.trim();
+    function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1600)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(txt);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected'}
+    try{navigator.clipboard.writeText(v).then(done,fallback)}catch(e){fallback()}
+  });
+})();
+</script>
+
+</body>
+</html>

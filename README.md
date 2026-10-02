@@ -2,6 +2,8 @@
 
 Software engineer from Indore, India. I build full-stack products and author evaluation tasks for AI coding agents.
 
+**Portfolio: [sanskar-verma.vercel.app](https://sanskar-verma.vercel.app/)**
+
 - Currently: AI task author and evaluator for agentic coding benchmarks (Handshake AI, AfterQuery, Alignerr)
 - Previously: CS Subject Matter Expert at Chegg India, Teaching Assistant at Coding Ninjas, Frontend Intern at ChemRobotics
 - B.Tech CSE, Jabalpur Engineering College (2021–2025)
